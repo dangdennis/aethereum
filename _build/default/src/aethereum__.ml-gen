@@ -1,0 +1,2 @@
+(** @canonical Aethereum.Address *)
+module Address = Aethereum__Address

@@ -1,0 +1,123 @@
+# dune runtest
+# OCAMLPARAM: unset
+# Workspace root: /Users/dennisdang/Desktop/aethereum
+$ /usr/bin/getconf _NPROCESSORS_ONLN > /var/folders/33/dxhswk150sx1sblqvj718r700000gn/T/dune2be5b9.output 2> /dev/null
+# Auto-detected concurrency: 10
+# disable binary cache
+$ /Users/dennisdang/.opam/4.14.0+options/bin/ocamlc.opt -config > /var/folders/33/dxhswk150sx1sblqvj718r700000gn/T/dunef83988.output
+# Dune context:
+#  { name = "default"
+#  ; kind = "default"
+#  ; profile = Dyn
+#  ; merlin = true
+#  ; for_host = None
+#  ; fdo_target_exe = None
+#  ; build_dir = "default"
+#  ; toplevel_path =
+#      Some External "/Users/dennisdang/.opam/4.14.0+options/lib/toplevel"
+#  ; ocaml_bin = External "/Users/dennisdang/.opam/4.14.0+options/bin"
+#  ; ocaml = Ok External "/Users/dennisdang/.opam/4.14.0+options/bin/ocaml"
+#  ; ocamlc = External "/Users/dennisdang/.opam/4.14.0+options/bin/ocamlc.opt"
+#  ; ocamlopt =
+#      Ok External "/Users/dennisdang/.opam/4.14.0+options/bin/ocamlopt.opt"
+#  ; ocamldep =
+#      Ok External "/Users/dennisdang/.opam/4.14.0+options/bin/ocamldep.opt"
+#  ; ocamlmklib =
+#      Ok External "/Users/dennisdang/.opam/4.14.0+options/bin/ocamlmklib.opt"
+#  ; env =
+#      map
+#        { "DUNE_OCAML_HARDCODED" :
+#            "/Users/dennisdang/.opam/4.14.0+options/lib"
+#        ; "DUNE_OCAML_STDLIB" :
+#            "/Users/dennisdang/.opam/4.14.0+options/lib/ocaml"
+#        ; "DUNE_SOURCEROOT" : "/Users/dennisdang/Desktop/aethereum"
+#        ; "INSIDE_DUNE" : "/Users/dennisdang/Desktop/aethereum/_build/default"
+#        ; "OCAMLFIND_IGNORE_DUPS_IN" :
+#            "/Users/dennisdang/Desktop/aethereum/_build/install/default/lib"
+#        ; "OCAMLPATH" :
+#            "/Users/dennisdang/Desktop/aethereum/_build/install/default/lib"
+#        ; "OCAMLTOP_INCLUDE_PATH" :
+#            "/Users/dennisdang/Desktop/aethereum/_build/install/default/lib/toplevel"
+#        ; "OCAML_COLOR" : "always"
+#        ; "OPAMCOLOR" : "always"
+#        }
+#  ; findlib_path = [ External "/Users/dennisdang/.opam/4.14.0+options/lib" ]
+#  ; arch_sixtyfour = true
+#  ; natdynlink_supported = true
+#  ; supports_shared_libraries = true
+#  ; ocaml_config =
+#      { version = "4.14.0"
+#      ; standard_library_default =
+#          "/Users/dennisdang/.opam/4.14.0+options/lib/ocaml"
+#      ; standard_library = "/Users/dennisdang/.opam/4.14.0+options/lib/ocaml"
+#      ; standard_runtime = "the_standard_runtime_variable_was_deleted"
+#      ; ccomp_type = "cc"
+#      ; c_compiler = "cc"
+#      ; ocamlc_cflags =
+#          [ "-O2"; "-fno-strict-aliasing"; "-fwrapv"; "-pthread" ]
+#      ; ocamlc_cppflags = [ "-D_FILE_OFFSET_BITS=64" ]
+#      ; ocamlopt_cflags =
+#          [ "-O2"; "-fno-strict-aliasing"; "-fwrapv"; "-pthread" ]
+#      ; ocamlopt_cppflags = [ "-D_FILE_OFFSET_BITS=64" ]
+#      ; bytecomp_c_compiler =
+#          [ "cc"
+#          ; "-O2"
+#          ; "-fno-strict-aliasing"
+#          ; "-fwrapv"
+#          ; "-pthread"
+#          ; "-D_FILE_OFFSET_BITS=64"
+#          ]
+#      ; bytecomp_c_libraries = [ "-lm"; "-lpthread" ]
+#      ; native_c_compiler =
+#          [ "cc"
+#          ; "-O2"
+#          ; "-fno-strict-aliasing"
+#          ; "-fwrapv"
+#          ; "-pthread"
+#          ; "-D_FILE_OFFSET_BITS=64"
+#          ]
+#      ; native_c_libraries = [ "-lm" ]
+#      ; cc_profile = []
+#      ; architecture = "arm64"
+#      ; model = "default"
+#      ; int_size = 63
+#      ; word_size = 64
+#      ; system = "macosx"
+#      ; asm = [ "cc"; "-c"; "-Wno-trigraphs" ]
+#      ; asm_cfi_supported = true
+#      ; with_frame_pointers = false
+#      ; ext_exe = ""
+#      ; ext_obj = ".o"
+#      ; ext_asm = ".s"
+#      ; ext_lib = ".a"
+#      ; ext_dll = ".so"
+#      ; os_type = "Unix"
+#      ; default_executable_name = "a.out"
+#      ; systhread_supported = true
+#      ; host = "aarch64-apple-darwin21.5.0"
+#      ; target = "aarch64-apple-darwin21.5.0"
+#      ; profiling = false
+#      ; flambda = false
+#      ; spacetime = false
+#      ; safe_string = true
+#      ; exec_magic_number = "Caml1999X031"
+#      ; cmi_magic_number = "Caml1999I031"
+#      ; cmo_magic_number = "Caml1999O031"
+#      ; cma_magic_number = "Caml1999A031"
+#      ; cmx_magic_number = "Caml1999Y031"
+#      ; cmxa_magic_number = "Caml1999Z031"
+#      ; ast_impl_magic_number = "Caml1999M031"
+#      ; ast_intf_magic_number = "Caml1999N031"
+#      ; cmxs_magic_number = "Caml1999D031"
+#      ; cmt_magic_number = "Caml1999T031"
+#      ; natdynlink_supported = true
+#      ; supports_shared_libraries = true
+#      ; windows_unicode = false
+#      }
+#  }
+$ (cd _build/default && /Users/dennisdang/.opam/4.14.0+options/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I test/.test.eobjs/byte -I /Users/dennisdang/.opam/4.14.0+options/lib/alcotest -I /Users/dennisdang/.opam/4.14.0+options/lib/alcotest/engine -I /Users/dennisdang/.opam/4.14.0+options/lib/alcotest/stdlib_ext -I /Users/dennisdang/.opam/4.14.0+options/lib/astring -I /Users/dennisdang/.opam/4.14.0+options/lib/base -I /Users/dennisdang/.opam/4.14.0+options/lib/base/base_internalhash_types -I /Users/dennisdang/.opam/4.14.0+options/lib/base/caml -I /Users/dennisdang/.opam/4.14.0+options/lib/base/shadow_stdlib -I /Users/dennisdang/.opam/4.14.0+options/lib/base64 -I /Users/dennisdang/.opam/4.14.0+options/lib/blake2 -I /Users/dennisdang/.opam/4.14.0+options/lib/bytes -I /Users/dennisdang/.opam/4.14.0+options/lib/cmdliner -I /Users/dennisdang/.opam/4.14.0+options/lib/ez_hash -I /Users/dennisdang/.opam/4.14.0+options/lib/fmt -I /Users/dennisdang/.opam/4.14.0+options/lib/jane-street-headers -I /Users/dennisdang/.opam/4.14.0+options/lib/lwt -I /Users/dennisdang/.opam/4.14.0+options/lib/ppx_compare/runtime-lib -I /Users/dennisdang/.opam/4.14.0+options/lib/ppx_enumerate/runtime-lib -I /Users/dennisdang/.opam/4.14.0+options/lib/ppx_expect/collector -I /Users/dennisdang/.opam/4.14.0+options/lib/ppx_expect/common -I /Users/dennisdang/.opam/4.14.0+options/lib/ppx_expect/config -I /Users/dennisdang/.opam/4.14.0+options/lib/ppx_expect/config_types -I /Users/dennisdang/.opam/4.14.0+options/lib/ppx_hash/runtime-lib -I /Users/dennisdang/.opam/4.14.0+options/lib/ppx_here/runtime-lib -I /Users/dennisdang/.opam/4.14.0+options/lib/ppx_inline_test/config -I /Users/dennisdang/.opam/4.14.0+options/lib/ppx_inline_test/runtime-lib -I /Users/dennisdang/.opam/4.14.0+options/lib/ppx_sexp_conv/runtime-lib -I /Users/dennisdang/.opam/4.14.0+options/lib/re -I /Users/dennisdang/.opam/4.14.0+options/lib/result -I /Users/dennisdang/.opam/4.14.0+options/lib/rpclib-lwt -I /Users/dennisdang/.opam/4.14.0+options/lib/rpclib/core -I /Users/dennisdang/.opam/4.14.0+options/lib/rresult -I /Users/dennisdang/.opam/4.14.0+options/lib/secp256k1 -I /Users/dennisdang/.opam/4.14.0+options/lib/seq -I /Users/dennisdang/.opam/4.14.0+options/lib/sexplib0 -I /Users/dennisdang/.opam/4.14.0+options/lib/stdlib-shims -I /Users/dennisdang/.opam/4.14.0+options/lib/time_now -I /Users/dennisdang/.opam/4.14.0+options/lib/uutf -I src/.aethereum.objs/byte -no-alias-deps -opaque -o test/.test.eobjs/byte/dune__exe__Test.cmo -c -impl test/test.ml)
+$ (cd _build/default && /Users/dennisdang/.opam/4.14.0+options/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I test/.test.eobjs/byte -I test/.test.eobjs/native -I /Users/dennisdang/.opam/4.14.0+options/lib/alcotest -I /Users/dennisdang/.opam/4.14.0+options/lib/alcotest/engine -I /Users/dennisdang/.opam/4.14.0+options/lib/alcotest/stdlib_ext -I /Users/dennisdang/.opam/4.14.0+options/lib/astring -I /Users/dennisdang/.opam/4.14.0+options/lib/base -I /Users/dennisdang/.opam/4.14.0+options/lib/base/base_internalhash_types -I /Users/dennisdang/.opam/4.14.0+options/lib/base/caml -I /Users/dennisdang/.opam/4.14.0+options/lib/base/shadow_stdlib -I /Users/dennisdang/.opam/4.14.0+options/lib/base64 -I /Users/dennisdang/.opam/4.14.0+options/lib/blake2 -I /Users/dennisdang/.opam/4.14.0+options/lib/bytes -I /Users/dennisdang/.opam/4.14.0+options/lib/cmdliner -I /Users/dennisdang/.opam/4.14.0+options/lib/ez_hash -I /Users/dennisdang/.opam/4.14.0+options/lib/fmt -I /Users/dennisdang/.opam/4.14.0+options/lib/jane-street-headers -I /Users/dennisdang/.opam/4.14.0+options/lib/lwt -I /Users/dennisdang/.opam/4.14.0+options/lib/ppx_compare/runtime-lib -I /Users/dennisdang/.opam/4.14.0+options/lib/ppx_enumerate/runtime-lib -I /Users/dennisdang/.opam/4.14.0+options/lib/ppx_expect/collector -I /Users/dennisdang/.opam/4.14.0+options/lib/ppx_expect/common -I /Users/dennisdang/.opam/4.14.0+options/lib/ppx_expect/config -I /Users/dennisdang/.opam/4.14.0+options/lib/ppx_expect/config_types -I /Users/dennisdang/.opam/4.14.0+options/lib/ppx_hash/runtime-lib -I /Users/dennisdang/.opam/4.14.0+options/lib/ppx_here/runtime-lib -I /Users/dennisdang/.opam/4.14.0+options/lib/ppx_inline_test/config -I /Users/dennisdang/.opam/4.14.0+options/lib/ppx_inline_test/runtime-lib -I /Users/dennisdang/.opam/4.14.0+options/lib/ppx_sexp_conv/runtime-lib -I /Users/dennisdang/.opam/4.14.0+options/lib/re -I /Users/dennisdang/.opam/4.14.0+options/lib/result -I /Users/dennisdang/.opam/4.14.0+options/lib/rpclib-lwt -I /Users/dennisdang/.opam/4.14.0+options/lib/rpclib/core -I /Users/dennisdang/.opam/4.14.0+options/lib/rresult -I /Users/dennisdang/.opam/4.14.0+options/lib/secp256k1 -I /Users/dennisdang/.opam/4.14.0+options/lib/seq -I /Users/dennisdang/.opam/4.14.0+options/lib/sexplib0 -I /Users/dennisdang/.opam/4.14.0+options/lib/stdlib-shims -I /Users/dennisdang/.opam/4.14.0+options/lib/time_now -I /Users/dennisdang/.opam/4.14.0+options/lib/uutf -I src/.aethereum.objs/byte -I src/.aethereum.objs/native -intf-suffix .ml -no-alias-deps -opaque -o test/.test.eobjs/native/dune__exe__Test.cmx -c -impl test/test.ml)
+$ (cd _build/default && /Users/dennisdang/.opam/4.14.0+options/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -o test/test.exe /Users/dennisdang/.opam/4.14.0+options/lib/astring/astring.cmxa /Users/dennisdang/.opam/4.14.0+options/lib/cmdliner/cmdliner.cmxa /Users/dennisdang/.opam/4.14.0+options/lib/uutf/uutf.cmxa /Users/dennisdang/.opam/4.14.0+options/lib/alcotest/stdlib_ext/alcotest_stdlib_ext.cmxa /Users/dennisdang/.opam/4.14.0+options/lib/fmt/fmt.cmxa /Users/dennisdang/.opam/4.14.0+options/lib/fmt/fmt_cli.cmxa /Users/dennisdang/.opam/4.14.0+options/lib/re/re.cmxa /Users/dennisdang/.opam/4.14.0+options/lib/stdlib-shims/stdlib_shims.cmxa /Users/dennisdang/.opam/4.14.0+options/lib/alcotest/engine/alcotest_engine.cmxa /Users/dennisdang/.opam/4.14.0+options/lib/ocaml/unix.cmxa -I /Users/dennisdang/.opam/4.14.0+options/lib/ocaml /Users/dennisdang/.opam/4.14.0+options/lib/fmt/fmt_tty.cmxa /Users/dennisdang/.opam/4.14.0+options/lib/alcotest/alcotest.cmxa -I /Users/dennisdang/.opam/4.14.0+options/lib/alcotest /Users/dennisdang/.opam/4.14.0+options/lib/lwt/lwt.cmxa /Users/dennisdang/.opam/4.14.0+options/lib/result/result.cmxa /Users/dennisdang/.opam/4.14.0+options/lib/base64/base64.cmxa /Users/dennisdang/.opam/4.14.0+options/lib/rresult/rresult.cmxa /Users/dennisdang/.opam/4.14.0+options/lib/rpclib/core/rpclib_core.cmxa /Users/dennisdang/.opam/4.14.0+options/lib/rpclib-lwt/rpclib_lwt.cmxa /Users/dennisdang/.opam/4.14.0+options/lib/ocaml/bigarray.cmxa -I /Users/dennisdang/.opam/4.14.0+options/lib/ocaml /Users/dennisdang/.opam/4.14.0+options/lib/secp256k1/secp256k1.cmxa -I /Users/dennisdang/.opam/4.14.0+options/lib/secp256k1 /Users/dennisdang/.opam/4.14.0+options/lib/blake2/blake2.cmxa -I /Users/dennisdang/.opam/4.14.0+options/lib/blake2 /Users/dennisdang/.opam/4.14.0+options/lib/ez_hash/ez_hash.cmxa -I /Users/dennisdang/.opam/4.14.0+options/lib/ez_hash /Users/dennisdang/.opam/4.14.0+options/lib/ppx_inline_test/config/inline_test_config.cmxa /Users/dennisdang/.opam/4.14.0+options/lib/base/base_internalhash_types/base_internalhash_types.cmxa -I /Users/dennisdang/.opam/4.14.0+options/lib/base/base_internalhash_types /Users/dennisdang/.opam/4.14.0+options/lib/base/caml/caml.cmxa /Users/dennisdang/.opam/4.14.0+options/lib/sexplib0/sexplib0.cmxa /Users/dennisdang/.opam/4.14.0+options/lib/base/shadow_stdlib/shadow_stdlib.cmxa /Users/dennisdang/.opam/4.14.0+options/lib/base/base.cmxa -I /Users/dennisdang/.opam/4.14.0+options/lib/base /Users/dennisdang/.opam/4.14.0+options/lib/jane-street-headers/jane_street_headers.cmxa /Users/dennisdang/.opam/4.14.0+options/lib/ppx_sexp_conv/runtime-lib/ppx_sexp_conv_lib.cmxa /Users/dennisdang/.opam/4.14.0+options/lib/ppx_compare/runtime-lib/ppx_compare_lib.cmxa /Users/dennisdang/.opam/4.14.0+options/lib/ppx_enumerate/runtime-lib/ppx_enumerate_lib.cmxa /Users/dennisdang/.opam/4.14.0+options/lib/ppx_hash/runtime-lib/ppx_hash_lib.cmxa /Users/dennisdang/.opam/4.14.0+options/lib/time_now/time_now.cmxa -I /Users/dennisdang/.opam/4.14.0+options/lib/time_now /Users/dennisdang/.opam/4.14.0+options/lib/ppx_inline_test/runtime-lib/ppx_inline_test_lib.cmxa /Users/dennisdang/.opam/4.14.0+options/lib/ppx_here/runtime-lib/ppx_here_lib.cmxa /Users/dennisdang/.opam/4.14.0+options/lib/ppx_expect/common/expect_test_common.cmxa /Users/dennisdang/.opam/4.14.0+options/lib/ppx_expect/config_types/expect_test_config_types.cmxa /Users/dennisdang/.opam/4.14.0+options/lib/ppx_expect/collector/expect_test_collector.cmxa -I /Users/dennisdang/.opam/4.14.0+options/lib/ppx_expect/collector /Users/dennisdang/.opam/4.14.0+options/lib/ppx_expect/config/expect_test_config.cmxa src/aethereum.cmxa test/.test.eobjs/native/dune__exe__Test.cmx)
+$ (cd _build/default/test && ./test.exe)
+> 303266373733376534356234336463653838623033613065666261333737623733336463323161363535353966646139663031356333353332333337383737363139
+> 33DD70E526E66C070EAE6335DBFEAF6A7BC0CEAC76E5683FAD278F4108CCF4DA

@@ -1,0 +1,15 @@
+description = ""
+requires =
+"ez_hash
+ lwt
+ ppx_expect.collector
+ ppx_expect.config
+ ppx_here.runtime-lib
+ ppx_inline_test.config
+ ppx_inline_test.runtime-lib
+ rpclib-lwt
+ secp256k1"
+archive(byte) = "aethereum.cma"
+archive(native) = "aethereum.cmxa"
+plugin(byte) = "aethereum.cma"
+plugin(native) = "aethereum.cmxs"

@@ -1,0 +1,33 @@
+(lang dune 2.9)
+(name aethereum)
+(library
+ (name aethereum)
+ (kind normal)
+ (archives (byte aethereum.cma) (native aethereum.cmxa))
+ (plugins (byte aethereum.cma) (native aethereum.cmxs))
+ (native_archives aethereum.a)
+ (requires
+  rpclib-lwt
+  lwt
+  secp256k1
+  ez_hash
+  ppx_inline_test.config
+  ppx_inline_test.runtime-lib
+  ppx_here.runtime-lib
+  ppx_expect.collector
+  ppx_expect.config)
+ (main_module_name Aethereum)
+ (modes byte native)
+ (modules
+  (wrapped
+   (main_module_name Aethereum)
+   (modules
+    ((name Address) (obj_name aethereum__Address) (visibility public) (impl))
+    ((name Aethereum) (obj_name aethereum) (visibility public) (impl)))
+   (alias_module
+    (name Aethereum__)
+    (obj_name aethereum__)
+    (visibility public)
+    (kind alias)
+    (impl))
+   (wrapped true))))
