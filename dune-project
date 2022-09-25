@@ -45,4 +45,17 @@
   odoc
   ocamlformat))
 
+(package
+ (name blake2)
+ (synopsis "Hash functions: sha3, sha256, blake2b")
+ (description "\nHash functions: sha3, sha256, blake2b\n")
+ (depends
+  (ocaml
+   (>= 4.08.0))
+  blake2
+  ppx_inline_test
+  ppx_expect
+  odoc
+  ocamlformat))
+
 ; See the complete stanza docs at https://dune.readthedocs.io/en/stable/dune-files.html#dune-project
