@@ -68,14 +68,13 @@ let make_pub_key_from_int_arr () =
 
 let () =
   let hex_pubkey = make_pub_key_from_hex () in
-  let buff = Secp256k1.Key.to_bytes ctx hex_pubkey in
+  let buff = Secp256k1.Key.to_bytes ?compress:(Some false) ctx hex_pubkey in
   let s = hex_of_buffer buff in
   s |> Format.printf "hex_pubkey %s\n";
 
   let intarr_pubkey = make_pub_key_from_int_arr () in
   Format.printf "intarr_pubkey %s\n" intarr_pubkey;
 
-  if s = intarr_pubkey then 
   ()
 
 (*compressed pub key 0x02f7737e45b43dce88b03a0efba377b733dc21a65559fda9f015c3532337877619 *)
