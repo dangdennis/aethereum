@@ -1,95 +1,14 @@
-let ctx = Secp256k1.Context.create [ Sign; Verify ]
-
 let pub_key =
   "02f7737e45b43dce88b03a0efba377b733dc21a65559fda9f015c3532337877619"
 
-let make_pub_key_from_hex () =
-  let buff = pub_key |> Aethereum.Address.buffer_of_hex in
-  Secp256k1.Key.read_pk_exn ctx buff
-
-let make_pub_key_from_int_arr () =
-  let int_arr =
-    [
-      247;
-      115;
-      126;
-      69;
-      180;
-      61;
-      206;
-      136;
-      176;
-      58;
-      14;
-      251;
-      163;
-      119;
-      183;
-      51;
-      220;
-      33;
-      166;
-      85;
-      89;
-      253;
-      169;
-      240;
-      21;
-      195;
-      83;
-      35;
-      55;
-      135;
-      118;
-      25;
-      39;
-      83;
-      236;
-      186;
-      20;
-      8;
-      154;
-      3;
-      37;
-      183;
-      120;
-      143;
-      237;
-      114;
-      101;
-      86;
-      143;
-      148;
-      63;
-      227;
-      245;
-      95;
-      115;
-      138;
-      121;
-      34;
-      79;
-      69;
-      21;
-      209;
-      61;
-      76;
-    ]
-  in
-  let b = Buffer.create 64 in
-  let () = List.iter (fun i -> Buffer.add_int8 b i) int_arr in
-  Buffer.to_bytes b
-
 let () =
-  let pub_key_js =
-    EzHash.SHA3KEC.hash_bytes (make_pub_key_from_int_arr ())
-    |> EzHash.SHA3KEC.raw |> EzHex.Hex.encode
-  in
+  let address = Aethereum.Address.compute_address pub_key in
 
-  let api_hash = Aethereum.Address.compute_address pub_key in
-
-  if api_hash = pub_key_js then print_endline "pubkey matches"
-  else print_endline "pk no match";
+  if
+    address
+    = ("0x1b64C49b4B6C195DC2475C41E3DD01Cc5bA459C9" |> String.lowercase_ascii)
+  then print_endline "address matches"
+  else print_endline "address no match";
 
   ()
 

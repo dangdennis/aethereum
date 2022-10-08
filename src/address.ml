@@ -9,6 +9,8 @@ let hex_of_buffer (b : Secp256k1.buffer) =
   let h = Hex.of_cstruct t in
   Hex.show h
 
+let prefix_with_hex s = "0x" ^ s
+
 let compute_address pk =
   let buffer_of_uncompressed_pub_key =
     pk |> buffer_of_hex
@@ -31,7 +33,7 @@ let compute_address pk =
     |> EzHash.SHA3KEC.raw |> EzHex.Hex.encode
   in
 
-  keccaked_pk
+  String.sub keccaked_pk 24 (String.length keccaked_pk - 24) |> prefix_with_hex
 
 (* let%expect_test "keccak256" =
      let digest = digest_keccak256 () in
