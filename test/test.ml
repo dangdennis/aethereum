@@ -1,19 +1,10 @@
 let ctx = Secp256k1.Context.create [ Sign; Verify ]
 
-let buffer_of_hex s =
-  let { Cstruct.buffer; _ } = Hex.to_cstruct (`Hex s) in
-  buffer
-
-let hex_of_buffer (b : Secp256k1.buffer) =
-  let t = Cstruct.of_bigarray b in
-  let h = Hex.of_cstruct t in
-  Hex.show h
+let pub_key =
+  "02f7737e45b43dce88b03a0efba377b733dc21a65559fda9f015c3532337877619"
 
 let make_pub_key_from_hex () =
-  let pub_key =
-    "02f7737e45b43dce88b03a0efba377b733dc21a65559fda9f015c3532337877619"
-  in
-  let buff = pub_key |> buffer_of_hex in
+  let buff = pub_key |> Aethereum.Address.buffer_of_hex in
   Secp256k1.Key.read_pk_exn ctx buff
 
 let make_pub_key_from_int_arr () =
@@ -90,40 +81,14 @@ let make_pub_key_from_int_arr () =
   Buffer.to_bytes b
 
 let () =
-  let hex_pubkey = make_pub_key_from_hex () in
-  let buff = Secp256k1.Key.to_bytes ?compress:(Some false) ctx hex_pubkey in
-  let uncompressed_pubkey = hex_of_buffer buff in
-  let san_prefix_pubkey =
-    String.sub uncompressed_pubkey 2 (String.length uncompressed_pubkey - 2)
-  in
-
-  let buf = Buffer.create 128 in
-
-  String.iteri
-    (fun i _ ->
-      match i with
-      | i when i mod 2 = 0 ->
-          let hex_pair = "0x" ^ String.sub san_prefix_pubkey i 2 in
-          let int8_of_hex_pair = int_of_string hex_pair in
-          print_string (String.sub san_prefix_pubkey i 2);
-          print_string " ";
-          print_int int8_of_hex_pair;
-          print_newline ();
-          Buffer.add_int8 buf int8_of_hex_pair
-      | _ -> ())
-    san_prefix_pubkey;
-
-  let pub_key_orig =
-    EzHash.SHA3KEC.hash_bytes (Buffer.to_bytes buf)
-    |> EzHash.SHA3KEC.raw |> EzHex.Hex.encode
-  in
-
   let pub_key_js =
     EzHash.SHA3KEC.hash_bytes (make_pub_key_from_int_arr ())
     |> EzHash.SHA3KEC.raw |> EzHex.Hex.encode
   in
 
-  if pub_key_js = pub_key_orig then print_endline "pubkey matches"
+  let api_hash = Aethereum.Address.compute_address pub_key in
+
+  if api_hash = pub_key_js then print_endline "pubkey matches"
   else print_endline "pk no match";
 
   ()

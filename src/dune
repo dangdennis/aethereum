@@ -1,6 +1,7 @@
 (library
  (name aethereum)
  (public_name aethereum)
- (libraries rpclib-lwt lwt secp256k1 ez_hash)
+ (libraries rpclib-lwt lwt secp256k1 ez_hash hex)
  (inline_tests)
- (preprocess (pps ppx_expect ppx_inline_test)))
+ (preprocess
+  (pps ppx_expect ppx_inline_test)))

@@ -1,9 +1,37 @@
-type t
+let ctx = Secp256k1.Context.create [ Sign; Verify ]
 
-let of_string addr = addr
+let buffer_of_hex s =
+  let { Cstruct.buffer; _ } = Hex.to_cstruct (`Hex s) in
+  buffer
 
-let test_pub_key =
-  "eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlRZT2dnXy01RU9FYmxhWS1WVlJZcVZhREFncHRuZktWNDUzNU1aUEMwdzAifQ.eyJpYXQiOjE2NjM5NzgzNDUsImF1ZCI6IkJFS1ZuZEFKMXN5Q24xUWVTWEFIT0M5RkVnQ3l2YVZSdnpMR1Y1WDdDR2JHazNfOTdDSVpmYzIydEJNV2JjZm9FTnNHb0dTSXFRNWJiZDYyYXowZ2dZQSIsIm5vbmNlIjoiMDI2YzY2ZmQwYjEyNGMwZGNiYzEyZTE0ZGQ0NmRhMTVlYjQwYTQxNmZjYjE3MTU0MjAzN2UzOTMwYWFkM2YyMzBlIiwiaXNzIjoiaHR0cHM6Ly9hcGkub3BlbmxvZ2luLmNvbSIsIndhbGxldHMiOlt7InB1YmxpY19rZXkiOiIwMmY3NzM3ZTQ1YjQzZGNlODhiMDNhMGVmYmEzNzdiNzMzZGMyMWE2NTU1OWZkYTlmMDE1YzM1MzIzMzc4Nzc2MTkiLCJ0eXBlIjoid2ViM2F1dGhfYXBwX2tleSIsImN1cnZlIjoic2VjcDI1NmsxIn1dLCJlbWFpbCI6ImRlbm5pc0B5b21pZ2FtZXMuZ2ciLCJuYW1lIjoiRGVubmlzIERhbmciLCJwcm9maWxlSW1hZ2UiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS9BTG01d3UyQ3p6dXpOZ0EtMUlCc0VWOUcwcThEamtEMU1INk9uaDJuOG1CTz1zOTYtYyIsInZlcmlmaWVyIjoidG9ydXMiLCJ2ZXJpZmllcklkIjoiZGVubmlzQHlvbWlnYW1lcy5nZyIsImFnZ3JlZ2F0ZVZlcmlmaWVyIjoidGtleS1nb29nbGUtbHJjIiwiZXhwIjoxNjY0MDY0NzQ1fQ.2sqbUQDr-6zS-Sxxg8oU1iAgQXQch7tSj1Z5xNrzUTlGfsgaIr0J5qFhLkub8G404Q4yQ09eHklTBOeEUVnCdA"
+let hex_of_buffer (b : Secp256k1.buffer) =
+  let t = Cstruct.of_bigarray b in
+  let h = Hex.of_cstruct t in
+  Hex.show h
+
+let compute_address pk =
+  let buffer_of_uncompressed_pub_key =
+    pk |> buffer_of_hex
+    |> Secp256k1.Key.read_pk_exn ctx
+    |> Secp256k1.Key.to_bytes ?compress:(Some false) ctx
+  in
+  let hex = hex_of_buffer buffer_of_uncompressed_pub_key in
+  let san_prefix_pubkey = String.sub hex 2 (String.length hex - 2) in
+
+  let buf = Buffer.create 64 in
+  san_prefix_pubkey
+  |> String.iteri (fun i _ ->
+         match i with
+         | i when i mod 2 = 0 ->
+             "0x" ^ String.sub san_prefix_pubkey i 2
+             |> int_of_string |> Buffer.add_int8 buf
+         | _ -> ());
+  let keccaked_pk =
+    EzHash.SHA3KEC.hash_bytes (Buffer.to_bytes buf)
+    |> EzHash.SHA3KEC.raw |> EzHex.Hex.encode
+  in
+
+  keccaked_pk
 
 (* let%expect_test "keccak256" =
      let digest = digest_keccak256 () in
