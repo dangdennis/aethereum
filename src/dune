@@ -4,4 +4,4 @@
  (libraries lwt secp256k1 ez_hash hex cohttp)
  (inline_tests)
  (preprocess
-  (pps ppx_expect ppx_inline_test)))
+  (pps ppx_jane ppx_expect ppx_inline_test)))

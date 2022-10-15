@@ -35,13 +35,10 @@ let compute_address pk =
 
   String.sub keccaked_pk 24 (String.length keccaked_pk - 24) |> prefix_with_hex
 
-(* let%expect_test "keccak256" =
-     let digest = digest_keccak256 () in
-     print_endline digest;
-     [%expect {| "" |}]
-   ;; *)
-
-(* let%expect_test "addition" =
-     Format.printf "%d" (1 + 2);
-     [%expect {| 3 |}]
-   ;; *)
+let%expect_test _ =
+  let pub_key =
+    "02f7737e45b43dce88b03a0efba377b733dc21a65559fda9f015c3532337877619"
+  in
+  let address = compute_address pub_key in
+  print_string address;
+  [%expect {| 0x1b64c49b4b6c195dc2475c41e3dd01cc5ba459c9 |}]
