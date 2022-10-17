@@ -1,4 +1,4 @@
-(lang dune 2.7)
+(lang dune 3.4)
 
 (name aethereum)
 
@@ -20,42 +20,43 @@
  (synopsis "OCaml SDK for Ethereum development inspired by etherjs")
  (description "")
  (depends
-  lwt
-  rpclib-lwt
+  alcotest
+  base
   dune
-  ocaml
-  tezt
-  secp256k1
   ez_hash
+  hex
+  ocaml
   ppx_expect
-  ppx_inline_test)
+  ppx_jane
+  ppx_inline_test
+  secp256k1-internal)
  (tags
   (topics "to describe" your project)))
 
-(package
- (name ez_hash)
- (synopsis "Hash functions: sha3, sha256, blake2b")
- (description "\nHash functions: sha3, sha256, blake2b\n")
- (depends
-  (ocaml
-   (>= 4.08.0))
-  blake2
-  ppx_inline_test
-  ppx_expect
-  odoc
-  ocamlformat))
+; (package
+;  (name ez_hash)
+;  (synopsis "Hash functions: sha3, sha256, blake2b")
+;  (description "\nHash functions: sha3, sha256, blake2b\n")
+;  (depends
+;   (ocaml
+;    (>= 4.08.0))
+;   blake2
+;   ppx_inline_test
+;   ppx_expect
+;   odoc
+;   ocamlformat))
 
-(package
- (name blake2)
- (synopsis "Hash functions: sha3, sha256, blake2b")
- (description "\nHash functions: sha3, sha256, blake2b\n")
- (depends
-  (ocaml
-   (>= 4.08.0))
-  blake2
-  ppx_inline_test
-  ppx_expect
-  odoc
-  ocamlformat))
+; (package
+;  (name secp256k1)
+;  (synopsis "Hash functions: sha3, sha256, blake2b")
+;  (description "\nHash functions: sha3, sha256, blake2b\n")
+;  (depends
+;   (ocaml
+;    (>= 4.08.0))
+;   blake2
+;   ppx_inline_test
+;   ppx_expect
+;   odoc
+;   ocamlformat))
 
 ; See the complete stanza docs at https://dune.readthedocs.io/en/stable/dune-files.html#dune-project

@@ -1,10 +1,10 @@
-let ctx = Secp256k1.Context.create [ Sign; Verify ]
+module Secp256k1 = Libsecp256k1.External
 
-let buffer_of_hex s =
-  let { Cstruct.buffer; _ } = Hex.to_cstruct (`Hex s) in
-  buffer
+let ctx = Secp256k1.Context.create ~sign:true ~verify:true ()
 
-let hex_of_buffer (b : Secp256k1.buffer) =
+let buffer_of_hex s = Cstruct.to_bigarray (Hex.to_cstruct (`Hex s))
+
+let hex_of_buffer (b) =
   let t = Cstruct.of_bigarray b in
   let h = Hex.of_cstruct t in
   Hex.show h
@@ -42,3 +42,5 @@ let%expect_test _ =
   let address = compute_address pub_key in
   print_string address;
   [%expect {| 0x1b64c49b4b6c195dc2475c41e3dd01cc5ba459c9 |}]
+
+
