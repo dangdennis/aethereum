@@ -1,3 +1,5 @@
+module Secp256k1 = Libsecp256k1.External
+
 let ctx = Secp256k1.Context.create [ Sign; Verify ]
 
 let buffer_of_hex s =
