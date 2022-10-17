@@ -30,7 +30,7 @@
   ppx_expect
   ppx_jane
   ppx_inline_test
-  secp256k1)
+  secp256k1-internal)
  (tags
   (topics "to describe" your project)))
 

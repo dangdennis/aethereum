@@ -1,12 +1,10 @@
 module Secp256k1 = Libsecp256k1.External
 
-let ctx = Secp256k1.Context.create [ Sign; Verify ]
+let ctx = Secp256k1.Context.create ~sign:true ~verify:true ()
 
-let buffer_of_hex s =
-  let { Cstruct.buffer; _ } = Hex.to_cstruct (`Hex s) in
-  buffer
+let buffer_of_hex s = Cstruct.to_bigarray (Hex.to_cstruct (`Hex s))
 
-let hex_of_buffer (b : Secp256k1.buffer) =
+let hex_of_buffer (b) =
   let t = Cstruct.of_bigarray b in
   let h = Hex.of_cstruct t in
   Hex.show h
