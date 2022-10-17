@@ -25,7 +25,6 @@
   dune
   ez_hash
   hex
-  lwt
   ocaml
   ppx_expect
   ppx_jane
