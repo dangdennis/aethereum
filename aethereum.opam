@@ -10,15 +10,17 @@ homepage: "https://github.com/dangdennis/aethereum"
 doc: "https://url/to/documentation"
 bug-reports: "https://github.com/dangdennis/aethereum/issues"
 depends: [
-  "lwt"
-  "rpclib-lwt"
-  "dune" {>= "2.7"}
-  "ocaml"
-  "tezt"
-  "secp256k1"
+  "alcotest"
+  "base"
+  "dune" {>= "3.4"}
   "ez_hash"
+  "hex"
+  "lwt"
+  "ocaml"
   "ppx_expect"
+  "ppx_jane"
   "ppx_inline_test"
+  "secp256k1"
   "odoc" {with-doc}
 ]
 build: [
