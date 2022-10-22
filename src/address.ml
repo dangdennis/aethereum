@@ -38,11 +38,6 @@ let public_key_of priv_key =
   let seckey = buffer_of_hex priv_key in
   let seckey = Secp256k1.Key.read_sk_exn ctx seckey in
   let pubkey = Secp256k1.Key.neuterize_exn ctx seckey in
-  (* let buf_pk_uncomp = Cstruct.create 65 in *)
-  (* let nb_written =
-       Secp256k1.Key.write ~compress:false ctx buf_pk_uncomp.buffer pubkey
-     in *)
-  (* print_int nb_written; *)
   let pubkey_serialized = Secp256k1.Key.to_bytes ~compress:false ctx pubkey in
   hex_of_buffer pubkey_serialized |> prefix_with_hex
 
