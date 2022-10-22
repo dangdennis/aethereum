@@ -1,0 +1,5 @@
+(executable
+ (name main)
+ (package aethereum)
+ (public_name aethereum_cli.exe)
+ (libraries aethereum))

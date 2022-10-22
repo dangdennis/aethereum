@@ -1,7 +1,15 @@
 (library
  (name aethereum)
  (public_name aethereum)
- (libraries base ez_hash hex secp256k1-internal)
+ (libraries
+  base
+  cohttp
+  cohttp-eio
+  eio_main
+  ez_hash
+  hex
+  jsonaf
+  secp256k1-internal)
  (inline_tests)
  (preprocess
-  (pps ppx_jane ppx_expect ppx_inline_test)))
+  (pps ppx_inline_test ppx_expect ppx_jane ppx_jsonaf_conv)))
