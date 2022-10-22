@@ -1,4 +1,0 @@
-(library
- (synopsis "HTTP types designed for interoperability")
- (name http)
- (public_name http))

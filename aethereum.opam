@@ -13,6 +13,8 @@ depends: [
   "alcotest"
   "base"
   "cohttp"
+  "cohttp-eio"
+  "eio_main"
   "dune" {>= "3.4"}
   "ez_hash"
   "jsonaf"
