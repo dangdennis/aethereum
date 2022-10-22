@@ -10,9 +10,8 @@ module Web3 = struct
   }
   [@@deriving jsonaf]
 
-  let sha3 digest =
+  let sha3 env digest =
     print_endline "what is going on";
-    Eio_main.run @@ fun env ->
     Switch.run @@ fun sw ->
     print_endline digest;
     let hostname, port = ("localhost", 8545) in
