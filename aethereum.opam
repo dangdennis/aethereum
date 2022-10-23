@@ -14,9 +14,10 @@ depends: [
   "base"
   "cohttp"
   "cohttp-eio"
-  "eio_main"
   "dune" {>= "3.4"}
+  "eio_main"
   "ez_hash"
+  "fetch-eio"
   "jsonaf"
   "hex"
   "ocaml"

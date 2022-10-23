@@ -26,9 +26,10 @@
   base
   cohttp
   cohttp-eio
-  eio_main
   dune
+  eio_main
   ez_hash
+  fetch-eio
   jsonaf
   hex
   ocaml
