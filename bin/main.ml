@@ -1,6 +1,6 @@
 let () =
   let t =
-    Fetch_eio.create
+    Fetch.create
       ~headers:(Http.Header.of_list [ ("content-type", "application/json") ])
       ~base_url:"http://localhost:8545" ()
   in

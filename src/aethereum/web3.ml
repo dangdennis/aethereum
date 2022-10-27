@@ -9,7 +9,7 @@ let sha3 t hashable =
     }
   in
   let body = Request.jsonaf_of_t req_body |> Jsonaf.to_string in
-  Fetch_eio.post ~body t "/"
+  Fetch.post ~body t "/"
 
 (* let%expect_test "sha3" =
    let () = Eio_main.run @@ fun env -> Web3.sha3 env "" in

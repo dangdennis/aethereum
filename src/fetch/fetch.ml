@@ -1,33 +1,11 @@
-module Headers = Fetch_core.Headers
-module Method = Fetch_core.Method
-module Status = Fetch_core.Status
-module Request = Fetch_core.Request
+module Headers = Http.Header
+module Method = Http.Method
+module Status = Http.Status
 
 exception InvalidRequest of string
 
 module Config = struct
   type t = { base_url : string option; headers : Headers.t } [@@deriving make]
-end
-
-module Body = struct
-  type t = string
-
-  let make body = body
-  let to_string body = body
-  let of_string body = make body
-end
-
-module Response = struct
-  module Body = Body
-  module Status = Status
-
-  type t = {
-    body : Body.t;
-    headers : Headers.t;
-    status : Status.t;
-    url : string;
-  }
-  [@@deriving make]
 end
 
 let create = Config.make

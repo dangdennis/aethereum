@@ -7,7 +7,7 @@
   cohttp-eio
   eio_main
   ez_hash
-  fetch-eio
+  fetch
   hex
   jsonaf
   secp256k1-internal)

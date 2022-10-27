@@ -11,6 +11,9 @@ doc: "https://url/to/documentation"
 bug-reports: "https://github.com/dangdennis/aethereum/issues"
 depends: [
   "dune" {>= "3.4"}
+  "cohttp"
+  "cohttp-eio"
+  "eio_main"
   "odoc" {with-doc}
 ]
 build: [
