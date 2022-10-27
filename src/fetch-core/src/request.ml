@@ -1,7 +1,7 @@
 type t = {
   body : string option;
   meth : Method.t;
-  headers : Headers.t list;
+  headers : Headers.t option;
   url : string;
 }
 

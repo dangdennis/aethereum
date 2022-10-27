@@ -1,4 +1,4 @@
-type t = string * string
+type t = Http.Header.t
 
 let to_string headers =
   let buffer = Buffer.create 128 in
