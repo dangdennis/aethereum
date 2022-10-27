@@ -1,0 +1,6 @@
+(library
+ (name fetch_eio)
+ (public_name fetch-eio)
+ (libraries cohttp cohttp-eio eio_main fetch_core)
+ (preprocess
+  (pps ppx_deriving.show ppx_deriving.ord ppx_deriving.make)))

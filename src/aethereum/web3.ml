@@ -1,4 +1,4 @@
-let sha3 ~url hashable =
+let sha3 ~url t hashable =
   let req_body =
     {
       Request.jsonrpc = "2.0";
@@ -9,7 +9,7 @@ let sha3 ~url hashable =
     }
   in
   let body = Request.jsonaf_of_request req_body |> Jsonaf.to_string in
-  Fetch_eio.post ~body url
+  Fetch_eio.post ~body t url
 
 (* let%expect_test "sha3" =
    let () = Eio_main.run @@ fun env -> Web3.sha3 env "" in

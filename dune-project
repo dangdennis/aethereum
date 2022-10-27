@@ -40,3 +40,19 @@
   secp256k1-internal)
  (tags
   (topics "to describe" your project)))
+
+(package
+ (name fetch-core)
+ (synopsis "")
+ (description "")
+ (depends)
+ (tags
+  (topics "to describe" your project)))
+
+(package
+ (name fetch-eio)
+ (synopsis "")
+ (description "")
+ (depends fetch-core cohttp cohttp-eio eio_main)
+ (tags
+  (topics "to describe" your project)))
