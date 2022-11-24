@@ -12,3 +12,5 @@ let () =
   Aethereum.Jsonrpc.Web3.client_version t |> print_endline;
   Aethereum.Jsonrpc.Net.version t |> print_endline;
   Aethereum.Jsonrpc.Net.listening t |> print_endline;
+  Aethereum.Jsonrpc.Net.peer_count t |> print_endline;
+  Aethereum.Jsonrpc.Eth.protocol_version t |> print_endline
